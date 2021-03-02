@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>别踩白块</title>
+		<link rel="stylesheet/less" type="text/css" href="./less/index.less" />
+	</head>
+	<body>
+		<div id="app">
+			<p class="fraction">
+				<span>
+					分数：<i>{{fraction}}</i>
+				</span>
+			</p>
+			<div v-for="(item,index) in itemList" class="item-items" :key="index">
+				<ul v-for="(j,i) in item" :key="i">
+					<li :id="index === itemList.length-1 && y === j.length-1 ? '1' : ''" :key="y" v-for="(b,y) in j" :class="b.v === 1 ? 'block-black' : 'block-white' " @click="clickItem(index,b.v)"></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script src="./js/less.min.js" ></script>
+	<script src="./js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+</html>
